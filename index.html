@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="hehe.webp" type="image/x-icon">
+    <title>Gửi Lời Chúc Valentine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Gửi Lời Chúc Valentine</h2>
+        <p>Hãy nhấn vào hộp quà để mở một thông điệp đặc biệt dành cho bạn!</p>
+        <div class="gift-box" onclick="openGift()">🎁</div>
+        <div class="message" id="message"> 
+            Chúc mừng Valentine!
+
+            Chúc bạn một ngày Valentine thật vui vẻ và hạnh phúc bên người thân yêu của mình. 
+            Hãy luôn giữ nụ cười và yêu thương nhau nhiều hơn mỗi ngày nhé! 
+            Tặng bạn một trái tim ❤️ và những lời chúc tốt đẹp nhất! 
+
+            Yêu thương, 
+
+            Người gửi
+        </div>
+    </div>
+    <script>
+        function openGift() {
+            const giftBox = document.querySelector(".gift-box");
+            giftBox.style.animation = "none"; 
+            giftBox.style.transform = "scale(1.2) rotate(360deg)";
+            setTimeout(() => {
+                giftBox.style.display = "none";
+                showMessage();
+                createHearts();
+            }, 500);
+        }
+    
+        function showMessage() {
+            const messageElement = document.getElementById("message");
+            messageElement.style.display = "inline-block";
+        }
+    
+        function createHearts() {
+            const heartSize = 50;
+    
+            for (let i = 0; i < 15; i++) { 
+                let heart = document.createElement("div");
+                heart.classList.add("hearts");
+                heart.innerHTML = "❤️";
+                // Giới hạn vị trí trái tim trong phạm vi cửa sổ trình duyệt
+                heart.style.left = Math.random() * (window.innerWidth - heartSize) + "px"; 
+                heart.style.top = Math.random() * (window.innerHeight - heartSize) + "px"; 
+                document.body.appendChild(heart);
+                heart.style.animationDuration = (Math.random() * 2 + 1) + "s";
+            }
+        }
+    </script>
+</body>
+</html>
