@@ -77,7 +77,7 @@ p {
     padding: 10px;
     overflow-wrap: break-word;
     max-height: 250px; 
-    overflow-y: scroll; 
+    overflow-y: auto; 
     scroll-behavior: smooth; 
 }
 
